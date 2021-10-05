@@ -19,6 +19,8 @@
       <input type="text" v-model="show.network" />
       Favorite:
       <input type="text" v-model="show.favorite" />
+      User_id:
+      <input type="text" v-model="show.user_id" />
       Url:
       <input type="text" v-model="show.image" />
       <input type="submit" value="Update" />
