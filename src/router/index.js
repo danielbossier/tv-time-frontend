@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import ShowsIndex from "../views/ShowsIndex.vue";
 import ShowsNew from "../views/ShowsNew.vue";
 import ShowsShow from "../views/ShowsShow.vue";
+import ShowsEdit from "../views/ShowsEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/shows/:id",
     name: "shows-show",
     component: ShowsShow,
+  },
+  {
+    path: "/shows/:id/edit",
+    name: "shows-edit",
+    component: ShowsEdit,
   },
   {
     path: "/about",
