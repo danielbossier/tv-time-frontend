@@ -3,7 +3,8 @@
     <h1>All Shows</h1>
     <div v-for="show in shows" v-bind:key="show.id">
       <h2>{{ show.title }}</h2>
-      <img v-bind:src="show.url" v-bind:alt="show.title" />
+      <img v-bind:src="show.image" v-bind:alt="show.title" />
+      <p>Show: {{ show.title }}</p>
       <p>Year: {{ show.year }}</p>
       <p>Description: {{ show.description }}</p>
       <p>Creator: {{ show.creator }}</p>
@@ -14,6 +15,13 @@
     </div>
   </div>
 </template>
+
+<style>
+img {
+  height: 100%;
+  max-height: 600px;
+}
+</style>
 
 <script>
 import axios from "axios";

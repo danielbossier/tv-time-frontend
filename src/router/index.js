@@ -13,13 +13,13 @@ const routes = [
     component: Home,
   },
   {
-    path: "/ShowsIndex",
-    name: "ShowsIndex",
+    path: "/shows",
+    name: "shows-index",
     component: ShowsIndex,
   },
   {
-    path: "/ShowsNew",
-    name: "ShowsNew",
+    path: "/showsNew",
+    name: "shows-new",
     component: ShowsNew,
   },
   {
