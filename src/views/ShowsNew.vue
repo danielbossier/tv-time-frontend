@@ -1,38 +1,53 @@
 <template>
   <div class="shows-new">
     <h1>New Shows</h1>
-    <div v-for="show in shows" v-bind:key="show.id">
-      <h2>{{ show.title }}</h2>
-      <img v-bind:src="show.url" v-bind:alt="show.title" />
-      <p>Year: {{ show.year }}</p>
-      <p>Description: {{ show.description }}</p>
-      <p>Creator: {{ show.creator }}</p>
-      <p>Seasons: {{ show.seasons }}</p>
-      <p>Network: {{ show.network }}</p>
-      <p>Favorite: {{ show.favorite }}</p>
-      <p>User_id: {{ show.user_id }}</p>
-    </div>
+    <form v-on:submit.prevent="createShow()">
+      <ul>
+        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+      </ul>
+      Title:
+      <input type="text" v-model="newShowParams.name" />
+      Year:
+      <input type="text" v-model="newShowParams.year" />
+      Description:
+      <input type="text" v-model="newShowParams.description" />
+      Creator:
+      <input type="text" v-model="newShowParams.creator" />
+      Seasons:
+      <input type="text" v-model="newShowParams.seasons" />
+      Favorite:
+      <input type="text" v-model="newShowParams.favorite" />
+      User_id:
+      <input type="text" v-model="newShowParams.user_id" />
+      Url:
+      <input type="text" v-model="newShowParams.url" />
+      <input type="submit" value="Create" />
+    </form>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-
 export default {
   data: function () {
     return {
-      shows: [],
+      newShowParams: {},
+      errors: [],
     };
   },
-  created: function () {
-    this.indexShows();
-  },
+  created: function () {},
   methods: {
-    indexShows: function () {
-      axios.get("/shows").then((response) => {
-        console.log("shows index", response);
-        this.shows = response.data;
-      });
+    createShow: function () {
+      axios
+        .post("/shows", this.newShowParams)
+        .then((response) => {
+          console.log("shows create", response);
+          this.$router.push("/shows");
+        })
+        .catch((error) => {
+          console.log("shows create error", error.response);
+          this.errors = error.response.data.errors;
+        });
     },
   },
 };
