@@ -6,7 +6,7 @@
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
       Title:
-      <input type="text" v-model="newShowParams.name" />
+      <input type="text" v-model="newShowParams.title" />
       Year:
       <input type="text" v-model="newShowParams.year" />
       Description:
@@ -17,10 +17,12 @@
       <input type="text" v-model="newShowParams.seasons" />
       Favorite:
       <input type="text" v-model="newShowParams.favorite" />
+      Network:
+      <input type="text" v-model="newShowParams.network" />
       User_id:
       <input type="text" v-model="newShowParams.user_id" />
       Url:
-      <input type="text" v-model="newShowParams.url" />
+      <input type="text" v-model="newShowParams.image" />
       <input type="submit" value="Create" />
     </form>
   </div>

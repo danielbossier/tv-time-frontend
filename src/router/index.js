@@ -18,7 +18,7 @@ const routes = [
     component: ShowsIndex,
   },
   {
-    path: "/showsNew",
+    path: "/shows/new",
     name: "shows-new",
     component: ShowsNew,
   },
