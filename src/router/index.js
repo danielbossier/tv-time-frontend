@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import ShowsIndex from "../views/ShowsIndex.vue";
 import ShowsNew from "../views/ShowsNew.vue";
+import ShowsShow from "../views/ShowsShow.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/shows/new",
     name: "shows-new",
     component: ShowsNew,
+  },
+  {
+    path: "/shows/:id",
+    name: "shows-show",
+    component: ShowsShow,
   },
   {
     path: "/about",
