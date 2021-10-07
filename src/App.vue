@@ -9,12 +9,19 @@
       |
       <router-link to="/shows/new">New Shows</router-link>
       |
-      <router-link to="/signup">Signup</router-link>
+      <div v-if="!isLoggedIn()">
+        <router-link to="/signup">Signup</router-link>
+      </div>
       |
-      <router-link to="/login">Login</router-link>
+      <div v-if="!isLoggedIn()">
+        <router-link to="/login">Login</router-link>
+      </div>
       |
-      <router-link to="/logout">Logout</router-link>
+      <div v-if="isLoggedIn()">
+        <router-link to="/logout">Logout</router-link>
+      </div>
     </div>
+
     <router-view />
   </div>
 </template>
@@ -41,3 +48,17 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
+</script>
