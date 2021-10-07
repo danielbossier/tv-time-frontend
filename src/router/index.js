@@ -5,6 +5,9 @@ import ShowsIndex from "../views/ShowsIndex.vue";
 import ShowsNew from "../views/ShowsNew.vue";
 import ShowsShow from "../views/ShowsShow.vue";
 import ShowsEdit from "../views/ShowsEdit.vue";
+import Signup from "../views/Signup.vue";
+import Login from "../views/Login.vue";
+import Logout from "../views/Logout.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +36,21 @@ const routes = [
     path: "/shows/:id/edit",
     name: "shows-edit",
     component: ShowsEdit,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: Signup,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: Logout,
   },
   {
     path: "/about",
